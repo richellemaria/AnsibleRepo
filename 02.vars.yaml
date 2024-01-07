@@ -4,18 +4,18 @@
     URL: play.google.com
     CAR: Kia
   tasks:
-    - name: Printing value of variable
+    - name: Printing value of variable1
       ansible.builtin.debug:
        msg: Value of variable is {{ URL }}
 
-    - name: Printing value of variable
+    - name: Printing value of variable2
       ansible.builtin.debug:
        msg: Value of variable is {{ URL }}   
       vars:
         URL: tasks.google.com 
 
-    - name: Printing value of variable 
+    - name: Printing value of variable3 
       ansible.builtin.debug:
-       msg: Value of variable is {{ CAR }}   
+       msg: "{{ CAR }}""   
       vars:
         CAR: ford   
