@@ -2,13 +2,20 @@
   hosts: all
   vars:
     URL: play.google.com
+    CAR: Kia
   tasks:
     - name: Printing value of variable
       ansible.builtin.debug:
        msg: Value of variable is {{ URL }}
 
-    - name: Printing value of variable not declared
+    - name: Printing value of variable
       ansible.builtin.debug:
        msg: Value of variable is {{ URL }}   
       vars:
         URL: tasks.google.com 
+
+    - name: Printing value of variable 
+      ansible.builtin.debug:
+       msg: Value of variable is {{ CAR }}   
+      vars:
+        CAR: ford   
