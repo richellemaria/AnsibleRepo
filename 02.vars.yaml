@@ -9,4 +9,6 @@
 
     - name: Printing value of variable not declared
       ansible.builtin.debug:
-       msg: Value of variable is {{ CAR }}   
+       msg: Value of variable is {{ URL }}   
+      vars:
+        URL: tasks.google.com 
