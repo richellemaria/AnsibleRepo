@@ -1,7 +1,7 @@
 - name: Demo on conditions
   hosts: all
   vars:
-   action: false
+   car: false
   tasks:
     - name: Run this if distribution is centos
       ansible.builtin.debug: 
@@ -16,7 +16,7 @@
     - name: Run this action
       ansible.builtin.debug:
         msg: I am learning Ansible and print it when its true
-      when: action    
+      when: car    
 
     - name: I will run only when value bar is mot declared 
       ansible.builtin.debug:
