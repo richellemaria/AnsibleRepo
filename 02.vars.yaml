@@ -21,7 +21,7 @@
 
     - name: Printing value of variable3 
       ansible.builtin.debug:
-       msg: "{{ CAR }}""   
+       msg: "{{ CAR }}" 
       vars:
         CAR: ford   
 
