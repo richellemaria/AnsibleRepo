@@ -6,7 +6,7 @@
     - name: Run this if distribution is centos
       ansible.builtin.debug: 
        msg: I am centos Machine
-      when: ansible_distribution == "CentOs"
+      when: ansible_distribution == "CentOS"
 
     - name: Run this if distribution is debian
       ansible.builtin.debug: 
