@@ -25,8 +25,7 @@
       vars:
         CAR: ford   
 
-    - name: Printing value of promptvariabl;e 
+    - name: Printing value of promptvariable 
       ansible.builtin.debug:
        msg: Value of prompt variable is {{ URLName }}   
-      vars:
-        CAR: ford     
+       
