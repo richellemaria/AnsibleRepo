@@ -8,3 +8,11 @@
     - name: Printing Hai from play1
       ansible.builtin.debug:
        msg: hai from task 2   
+
+- name: Play2
+  hosts: prod
+  tasks:
+    - name: Printing Hai from play2
+      ansible.builtin.debug:
+       msg: Hello from play2
+
