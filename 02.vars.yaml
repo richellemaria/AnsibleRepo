@@ -3,6 +3,8 @@
   vars:
     URL: play.google.com
     CAR: Kia
+  vars_files:
+    -dev-vars.yml
   tasks:
     - name: Printing value of variable1
       ansible.builtin.debug:
