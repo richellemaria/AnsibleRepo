@@ -2,5 +2,5 @@
   hosts: all
   tasks: 
    - name:This is demo on facts
-     ansible.builtin.module:
+     ansible.builtin.debug:
       msg: ansible_distribution is {{ ansible_distribution }}
