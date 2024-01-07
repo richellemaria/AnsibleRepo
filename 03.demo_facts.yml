@@ -4,3 +4,7 @@
    - name: This is demo on facts
      ansible.builtin.debug:
       msg: ansible_distribution is {{ ansible_distribution }}
+
+   - name: This is demo on printing mac address
+     ansible.builtin.debug:
+      msg: printing mac address is {{ ansible_default_ipv4.macaddress }}   
