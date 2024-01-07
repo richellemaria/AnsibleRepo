@@ -1,0 +1,26 @@
+- name: Demo on conditions
+  hosts: all
+  vars:
+   action: false
+  tasks:
+    - name: Run this if distribution is centos
+      ansible.builtin.debug: 
+       msg: I am centos Machine
+      when: ansible_distribution == "CentOs"
+
+    - name: Run this if distribution is debian
+      ansible.builtin.debug: 
+       msg: I am centos Machine
+      when: ansible_distribution == "Debian"
+
+    - name: Run this action
+      ansible.builtin.debug:
+        msg: I am learning Ansible and print it when its true
+      when: action    
+
+    - name: I will run only when value bar is mot declared 
+      ansible.builtin.debug:
+        msg: BAR is not declared
+      when: bar is undefined 
+
+
