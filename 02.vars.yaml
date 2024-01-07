@@ -4,7 +4,10 @@
     URL: play.google.com
     CAR: Kia
   vars_files:
-    -dev-vars.yml
+    - dev-vars.yml
+  vars_prompt:
+    - name : URLName
+      prompt: Enter URL Name  
   tasks:
     - name: Printing value of variable1
       ansible.builtin.debug:
@@ -21,3 +24,9 @@
        msg: "{{ CAR }}""   
       vars:
         CAR: ford   
+
+    - name: Printing value of promptvariabl;e 
+      ansible.builtin.debug:
+       msg: Value of prompt variable is {{ URLName }}   
+      vars:
+        CAR: ford     
