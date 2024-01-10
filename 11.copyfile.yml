@@ -1,0 +1,7 @@
+- name: Playbook on copy file
+  hosts: all
+  tasks:
+    - name: copying the systemd file
+      ansible.builtin.copy: 
+       src: systemd.txt
+       dest: /home/centos/systemd.txt
