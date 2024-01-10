@@ -5,6 +5,6 @@
       ansible.builtin.debug: 
         msg: Value is {{ item }}
       loop:
-        -10
-        -20
-        -30  
+        - 10
+        - 20
+        - 30  
