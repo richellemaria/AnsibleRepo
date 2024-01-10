@@ -1,4 +1,4 @@
-- name: Demo on conditions
+- name: Demo on tags
   hosts: all
   tasks:
     - name: This is frontend task
