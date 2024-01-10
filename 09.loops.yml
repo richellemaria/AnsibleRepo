@@ -1,0 +1,10 @@
+- name: Demo on loops
+  hosts: all
+  tasks:
+    - name: Demo on using loop 1
+      ansible.builtin.debug: 
+        msg: Value is {{ item }}
+      loop:
+        -10
+        -20
+        -30  
