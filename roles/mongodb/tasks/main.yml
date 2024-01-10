@@ -1,0 +1,4 @@
+- name: This is mongodb task
+  ansible.builtin.debug: 
+    msg: installing mongodb
+      

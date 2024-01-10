@@ -1,6 +1,8 @@
-[fronten]
+[frontend]
 172.31.27.159
 
-[dev]
+[mogodb]
 172.31.30.103
+
+[catalogue]
 172.31.27.193
