@@ -1,5 +1,4 @@
 - name: Playbook to configure roboshop project
-  hosts: all
+  hosts: fronten
   roles:
    - frontend
-   
