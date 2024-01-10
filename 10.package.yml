@@ -1,5 +1,6 @@
 - name: Demo on tagpackages
   hosts: all
+  become: yes
   tasks:
     - name: installing nginx
       ansible.builtin.package: 
