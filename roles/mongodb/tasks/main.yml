@@ -11,7 +11,7 @@
 - name: Updating the Mongodb config to be public  
   ansible.builtin.replace:
     path: /etc/mongod.conf
-    regex: '127.0.0.1'
+    regexp: '127.0.0.1'
     replace: '0.0.0.0'
       
 - name: starting mongodb
@@ -26,12 +26,15 @@
     dest: /tmp
     remote_src: yes  
 
-- name: Injecting the mongodb catalogue scehma
+- name: Injecting the mongodb scehma
   community.mongodb.mongodb_shell:
-     file: "/tmp/{{ COMPONENT }}-manin/catalogue.js"
-     idempotent: yes      
+     file: "/tmp/{{ COMPONENT }}-manin/{{item}}.js"
+     idempotent: yes 
+  loop:
+    - catalogue
+    - users     
 
-- name: Injecting the mongodb users scehma
-  community.mongodb.mongodb_shell:
-     file: "/tmp/{{ COMPONENT }}-manin/users.js"
-     idempotent: yes          
+# - name: Injecting the mongodb users scehma
+#   community.mongodb.mongodb_shell:
+#      file: "/tmp/{{ COMPONENT }}-manin/users.js"
+#      idempotent: yes          
