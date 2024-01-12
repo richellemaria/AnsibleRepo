@@ -28,7 +28,7 @@
 
 - name: Injecting the mongodb scehma
   community.mongodb.mongodb_shell:
-     file: "/tmp/{{ COMPONENT }}-manin/{{item}}.js"
+     file: "/tmp/{{ COMPONENT }}-manin/{{ item }}.js"
      idempotent: yes 
   loop:
     - catalogue
