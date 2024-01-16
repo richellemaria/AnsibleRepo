@@ -1,5 +1,5 @@
 - name: configuring NodeJS repo
-  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/pub_16.x | sudo bash -
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash 
 
 - name: installing NodeJS
   ansible.builtin.package:
