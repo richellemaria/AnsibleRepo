@@ -6,7 +6,7 @@
 
 - name: Performing {{ COMPONENT }} cleanup
   ansible.builtin.file:
-   path: /usr/share/nginx/html
+   path: /usr/share/{{APPUSER}}/{{COMPONENT}}
    state: absent
    ignore_errors: yes
 
