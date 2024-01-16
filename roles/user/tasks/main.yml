@@ -1,37 +1,5 @@
-- name: configuring NodeJS repo
-  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash 
-
-- name: installing NodeJS
-  ansible.builtin.package:
-    name: nodejs
-    state: present
-
-- name: Creating Appuser
-  ansible.builtin.user:
-    name: "{{ APPUSER }}"
-    comment: Roboshop Application user   
-
-- name: Download and extract frontend
+- name: Configuring {{COMPONENT}}-{{ENV}} Server 
   ansible.builtin.include_role:
     name: common
-    tasks_from: download  
-
-- name: Generating Artificats
-  community.general.npm:
-   path: /home/{{ APPUSER }}/{{ COMPONENT }}/
-   
-- name: copying the systemd file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/{{ COMPONENT }}.service
-          
-- name: Restarting user
-  ansible.builtin.systemd:
-    name: "{{ COMPONENT }}"
-    state: restarted
-    enabled: true
-    daemon_reload: true   
-
-- name: setting the hostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}    
+    tasks_from: nodejs 
     
