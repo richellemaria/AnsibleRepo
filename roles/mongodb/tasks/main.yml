@@ -36,4 +36,7 @@
 # - name: Injecting the mongodb users scehma
 #   community.mongodb.mongodb_shell:
 #      file: "/tmp/{{ COMPONENT }}-manin/users.js"
-#      idempotent: yes          
+#      idempotent: yes   
+
+- name: setting the hostname
+  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
