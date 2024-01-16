@@ -28,7 +28,7 @@
   ansible.builtin.systemd:
     name: nginx
     state: started
-    enabled: true      
+    enabled: True      
 
 - name: setting the hostname
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
