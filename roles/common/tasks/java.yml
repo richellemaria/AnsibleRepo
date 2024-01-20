@@ -1,0 +1,28 @@
+- name: installing Maven
+  ansible.builtin.package:
+    name: nodejs
+    state: present
+
+- name: Creating Appuser
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: createuser   
+
+- name: Download and extract frontend
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download     
+
+- name: Generating {{COMPONENT}} artifacts
+  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar 
+   args:
+     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
+   
+   
+- name: Download and extract frontend
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_src    
+
+- name: setting the hostname
+  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}     

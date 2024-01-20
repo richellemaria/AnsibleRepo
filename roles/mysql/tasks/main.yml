@@ -4,8 +4,11 @@
     dest: /etc/yum.repos.d/mysql.repo
 
 - name: Installing {{COMPONENT}}
-  ansible.builtin.package:
-    name: mysql-community-server
+  ansible.builtin.yum:
+    name: 
+      - mysql-community-server
+      - python3-PyMySQL
+      - MySQL-python
     state: present
 
       
@@ -38,6 +41,19 @@
     - name: Uninstalling {{COMPONENT}} password validate plugin
       ansible.builtin.shell: echo "UNINSTALL PLUGIN validate_password;" | mysql -uroot -pRoboShop@1
       ignore_errors: true
-   
+
+- name: Download and extract {{COMPONENT}} Schema
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Injecting the {{COMPONENT}} Schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /tmp/{{ COMPONENT }}-main/shipping.sql
+    login_user: root
+    login_password: RoboShop@1 
+
 - name: setting the hostname
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
