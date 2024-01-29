@@ -1,9 +1,9 @@
 pipleine{
-    hosts any
+    agent any
     environment{
          SSHCRED         = credentials('SSH_CRED') 
     }
-    parameter{
+    parameters{
          string(name: 'COMPONENT', defaultValue: 'mongodb' , description: 'enter the name of the component')
     }
     stages{
