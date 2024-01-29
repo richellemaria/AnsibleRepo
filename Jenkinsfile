@@ -8,6 +8,7 @@ pipeline {
     }
     stages{
         stage('Ansible Code Scan'){
+            when { branch pattern: "feature-.*", comparator: "REGEXP"}
             steps{
                 sh  "echo Code Scan Completed"
             }
