@@ -29,10 +29,16 @@ pipeline {
                 ''' 
             }
         }
+        // stage('Promoting Code to Prod Branch'){
+        //     when {
+        //          branch 'main'
+        //     }
+        //     steps{
+        //         sh "echo Merging the feature branch to PROD Branch"
+        //     }
+        // }
         stage('Promoting Code to Prod Branch'){
-            when {
-                 branch 'main'
-            }
+            when { expression { env.TAG_NAME != null } }    
             steps{
                 sh "echo Merging the feature branch to PROD Branch"
             }
