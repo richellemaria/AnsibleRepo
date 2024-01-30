@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh  "env"
                 sh  "echo Running aganst the feature branch whose name is ${GIT_BRANCH}"
-                sh  "echo Lint Checks Completed for {GIT_BRANCH}"
+                sh  "echo Lint Checks for {GIT_BRANCH}"
             }
         }
         stage('Ansible Dry Run'){
